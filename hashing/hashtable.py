@@ -34,6 +34,5 @@ class HashLogic(object):
     def PrintHashTable(self):
         for i in range(0, self.size):
             logging.info(self.Search(i))
-            print(self.Search(i))
 
         
