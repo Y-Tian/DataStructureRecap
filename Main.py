@@ -1,5 +1,5 @@
 import logging
-from hashtable import HashLogic
+from hashing.hashtable import HashLogic
 from linkedlists.singlylinkedlist import SLinkedList
 from linkedlists.singlylinkedlist import Node
 
