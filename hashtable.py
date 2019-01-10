@@ -13,7 +13,7 @@ class HashLogic(object):
             sum = ord(char)
             asciiTemp += sum*10+index
             index += 1
-        return asciiTemp%2069
+        return asciiTemp%13
 
     def Search(self, key):
         if key:
@@ -22,6 +22,18 @@ class HashLogic(object):
     def Insert(self, obj):
         if isinstance(obj, str):
             key = self.HashFuncString(obj)
-            logging.info(key)
-        if key:
-            self.table[key] = obj
+            logging.debug(key)
+            if key:
+                self.table[key] += 1
+        elif isinstance(obj, list):
+            for item in obj:
+                key = self.HashFuncString(item)
+                if key:
+                    self.table[key] += 1
+    
+    def PrintHashTable(self):
+        for i in range(0, self.size):
+            logging.info(self.Search(i))
+            print(self.Search(i))
+
+        
