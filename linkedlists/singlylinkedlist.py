@@ -1,6 +1,6 @@
 import logging
 
-class Node:
+class SLinkedListNode:
     def __init__(self, data=None):
         self.data = data
         self.nextNode = None
@@ -26,18 +26,18 @@ class SLinkedList:
 
     def appendNode(self, data):
         head = self.head
-        newNode = Node(data)
+        newNode = SLinkedListNode(data)
         head.nextNode = newNode
     
     def pushNode(self, data):
         tempNode = self.head
-        newNode = Node(data)
+        newNode = SLinkedListNode(data)
         self.head = newNode
         self.head.nextNode = tempNode
 
     def insertNode(self, data, index):
         if index <= self.getSize():
-            newNode = Node(data)
+            newNode = SLinkedListNode(data)
             currNode = self.head
             for i in range(0, index-1):
                 currNode = currNode.nextNode

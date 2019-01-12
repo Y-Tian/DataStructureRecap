@@ -1,7 +1,9 @@
 import logging
 from hashing.hashtable import HashLogic
 from linkedlists.singlylinkedlist import SLinkedList
-from linkedlists.singlylinkedlist import Node
+from bfs.bfs import BsfLogic
+from linkedlists.singlylinkedlist import SLinkedListNode
+from bfs.bfs import BSFNode
 
 class Logic:
     def __init__(self):
@@ -15,7 +17,7 @@ class Logic:
         hashd.PrintHashTable()
 
     def testSLinkedListData(self):
-        nodeHead = Node("0")
+        nodeHead = SLinkedListNode("0")
         linkedlist = SLinkedList()
         linkedlist.head = nodeHead
         linkedlist.appendNode("5")
@@ -24,12 +26,30 @@ class Logic:
         linkedlist.pushNode("2")
         linkedlist.traverse()
 
+    def testBsfData(self):
+        nodeA = BSFNode("1")
+        nodeB = BSFNode("2")
+        nodeC = BSFNode("3")
+        nodeD = BSFNode("4")
+        nodeE = BSFNode("5")
+        nodeF = BSFNode("6")
+        nodeG = BSFNode("7")
+        graph = {nodeA : set([nodeB, nodeC]),
+                 nodeB : set([nodeD, nodeE]),
+                 nodeC : set([nodeF, nodeG])}
+        graphHashable = {'A' : set(['B', 'C']),
+                         'B' : set(['D', 'E']),
+                         'C' : set(['F', 'G'])}
+        bsf = BsfLogic(graphHashable, 'A')
+        bsf.main()
+
 def main():
     Log = logging.getLogger('myLogger')
     Log.setLevel(20)
     logic = Logic()
     # logic.testHashData()
-    logic.testSLinkedListData()
+    # logic.testSLinkedListData()
+    logic.testBsfData()
 
 main()
 
